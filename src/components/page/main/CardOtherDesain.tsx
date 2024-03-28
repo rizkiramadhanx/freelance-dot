@@ -8,8 +8,8 @@ const CardOtherDesain = () => {
         <Image
           className="w-full rounded-[4px]"
           src="/img/image-desain.png"
-          height={50}
-          width={50}
+          height={200}
+          width={200}
           alt="image desain"
         />
         <div className="mt-6">
@@ -46,7 +46,6 @@ const CardOtherDesain = () => {
             <div className="flex flex-col items-center justify-start">
               <Image
                 className="w-auto h-[15px]"
-
                 src="/svg/luas.svg"
                 height={18}
                 width={18}

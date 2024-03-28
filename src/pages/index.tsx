@@ -4,10 +4,34 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { sourceSansPro } from "@/libs/font";
 import Image from "next/image";
 import { DropdownIcon } from "../../public/svg";
-import CardViewHome from "@/components/page/main/CardViewHome";
+import CardViewHome, { TTypeCardViewHome } from "@/components/page/main/CardViewHome";
 import Footer from "@/components/layout/Footer";
+import CardDetail from "@/components/page/main/CardDetail";
 
 
+const dataViewHome: TTypeCardViewHome[] = [{
+  title: 'Ruang Keluarga',
+  image: "/img/view/1.png",
+  wide: "2.0 x 2.9"
+},
+{
+  title: 'Kamar Tidur',
+  image: "/img/view/2.png",
+  wide: "4.0 x 3.9"
+}, {
+  title: 'Ruang Makan & Dapur',
+  image: "/img/view/3.png",
+  wide: "3.0 x 2.9"
+}, {
+  title: 'Ruang Kerja',
+  image: "/img/view/1.png",
+  wide: "2.0 x 2.9"
+}, {
+  title: 'Kamar Tidur',
+  image: "/img/view/1.png",
+  wide: "4.0 x 3.4"
+}
+]
 
 export default function Home() {
   return (
@@ -56,96 +80,44 @@ export default function Home() {
           <div className='text-[#1A1A1A] text-[24px] font-bold'>Tampilan Rumah</div>
           <div className="grid grid-cols-1 gap-y-4 xl:grid-cols-preview-home gap-x-9">
             <div className="grid grid-cols-3 mt-4 gap-4">
-              {[1, 1, 1].map((data, key) =>
-                <CardViewHome key={key} />
+              {dataViewHome.map((data, key) =>
+                <CardViewHome
+                  title={data.title}
+                  wide={data.wide}
+                  image={data.image} key={key} />
               )}
             </div>
-            <div className="p-4 border-[#E6E6E6] border-[1px] rounded-2xl">
-              <div className="font-semibold text-[24px]">Omah Apik 3</div>
-              <div className="flex gap-1 mt-2 items-center">
-                <Image
-                  className="w-[28px] h-[28px] rounded-full"
-                  src="/svg/logo-omah.svg"
-                  height={28}
-                  width={28}
-                  alt="logo studio SAe"
-                />
-                <div className="text-[14px]">Studio SAe</div>
-              </div>
-              <div className="mt-4 text-[14px]">
-                <div className="flex gap-6">
-                  <div className="text-[#4D4D4D]">Jenis Rumah</div>
-                  <div>Scandinavian</div>
-                </div>
-                <div className="flex gap-6 mt-2 items-center">
-                  <div className="text-[#4D4D4D]">Tipe Desain</div>
-                  <div className="text-red-brand flex gap-1 items-center">
-                    <Image
-                      className="w-[15px] h-[15px]"
-                      src="/svg/check.svg"
-                      height={15}
-                      width={15}
-                      alt="logo studio SAe"
-                    />
-                    <div>Dapat Dimodifikasi</div>
-                  </div>
-                </div>
-              </div>
-              <div className="grid mt-4 grid-cols-4 gap-5 py-4 border-t-[1px] border-b-[1px] border-[#E6E6E6]">
-                <div className="flex flex-col items-center justify-center">
-                  <Image
-                    className="w-auto h-[8px]"
-                    src="/svg/dimension.svg"
-                    height={18}
-                    width={18}
-                    alt="dimension"
-                  />
-                  <div className="text-[12px] text-center text-[#808080] mt-2">Dimensi Tanah</div>
-                  <div className="text-[14px]"> 15 x 8m</div>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                  <Image
-                    className="w-auto h-[8px]"
-                    src="/svg/dimension.svg"
-                    height={18}
-                    width={18}
-                    alt="dimension"
-                  />
-                  <div className="text-[12px] text-center text-[#808080] mt-2">Luas Bangunan</div>
-                  <div className="text-[14px]">112m²</div>
-                </div><div className="flex flex-col items-center justify-center">
-                  <Image
-                    className="w-auto h-[8px]"
-                    src="/svg/dimension.svg"
-                    height={18}
-                    width={18}
-                    alt="dimension"
-                  />
-                  <div className="text-[12px] text-center text-[#808080] mt-2">Lantai</div>
-                  <div className="text-[14px]"> 2</div>
-                </div><div className="flex flex-col items-center justify-center">
-                  <Image
-                    className="w-auto h-[8px]"
-                    src="/svg/dimension.svg"
-                    height={18}
-                    width={18}
-                    alt="dimension"
-                  />
-                  <div className="text-[12px] text-center text-[#808080] mt-2">Kamar Tidur</div>
-                  <div className="text-[14px]"> 4</div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-1 mt-4">
-                <div className="text-[14px]">Harga Desain</div>
-                <div className="text-[24px] font-semibold">
-                  Rp. 32.500.000
-                </div>
-                <div className="text-[#808080] text-[14px]">
-                  Harga konstruksi mulai dari Rp 560.000.000
-                </div>
-              </div>
-              <div className="mt-4 cursor-pointer hover:bg-red-brand hover:text-white text-red-brand border-red-brand border-[1px] py-2 px-4 rounded-md font-semibold flex justify-center">
-                Lihat Detail
+            <div>
+              <CardDetail />
+              <div className="mt-8">
+                <div className="text-[24px] text-[#1A1A1A] font-semibold">Testimoni</div>
+                {Array(3).fill('').map((_, key) =>
+                  <div key={key} className="mt-4">
+                    <div className="flex items-start gap-5">
+                      <Image
+                        src='/svg/person.svg'
+                        alt="person"
+                        height={44}
+                        width={44}
+                      />
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <div className="font-semibold text-[#1A1A1A]">Budi Setiadi</div>
+                          <div className="flex items-center gap-1 border-l-[1px] pl-2 border-[#C5C7D0]">
+                            <Image
+                              src='/svg/stars.svg'
+                              alt="starts"
+                              height={12}
+                              width={12}
+                            />
+                            <div className="text-[14px] mt-[2px] ">4.5</div>
+                          </div>
+                        </div>
+                        <div className="text-[#666666]">Desainnya sangat bagus dan pengirimannya cepat. Terima kasih Sobat Bangun</div>
+                      </div>
+                    </div>
+                  </div>)}
+
               </div>
             </div>
           </div>
