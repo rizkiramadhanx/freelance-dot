@@ -122,7 +122,7 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div className="mt-[50px] flex justify-between items-center">
+        <div className="mt-[50px] flex flex-col md:flex-row md:justify-between md:items-center">
           <div className="flex gap-4">
             <div>Powered by :</div>
             <Image

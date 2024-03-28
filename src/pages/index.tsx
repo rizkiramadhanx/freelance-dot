@@ -7,6 +7,7 @@ import { DropdownIcon } from "../../public/svg";
 import CardViewHome, { TTypeCardViewHome } from "@/components/page/main/CardViewHome";
 import Footer from "@/components/layout/Footer";
 import CardDetail from "@/components/page/main/CardDetail";
+import Navbar from "@/components/layout/Navbar";
 
 
 const dataViewHome: TTypeCardViewHome[] = [{
@@ -36,38 +37,8 @@ const dataViewHome: TTypeCardViewHome[] = [{
 export default function Home() {
   return (
     <main className={`${sourceSansPro.variable} font-sourcesans`}>
-      <div className="py-10 flex justify-center">
-        <div className="container">
-          <div className="flex justify-between items-center">
-            <Image
-              src="/img/Logo.png"
-              alt="Logo"
-              height={42}
-              width={100}
-              className="h-[42px] w-auto"
-            />
-            <div className="font-semibold flex gap-8 items-center">
-              <div className="flex gap-[13px] items-center">
-                <div>Tentang Kami</div>
-                <DropdownIcon />
-              </div>
-              <div className="flex gap-[13px] items-center">
-                <div>Produk & Layanan</div>
-                <DropdownIcon />
-              </div>
-              <div>Blog</div>
-              <div>FAQ</div>
-            </div>
-            <div className="flex items-center gap-4 font-semibold">
-              <button className="px-4 py-[10px] rounded-md">Daftar</button>
-              <button className="px-4 py-[10px] rounded-md bg-red-brand text-white">
-                Masuk
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="py-[25px] flex justify-center">
+      <Navbar />
+      <div className="pb-[25px] md:pt-[150px] pt-[100px] flex justify-center">
         <div className="container">
           <Breadcrumbs />
         </div>
@@ -79,7 +50,7 @@ export default function Home() {
         <div className="container">
           <div className='text-[#1A1A1A] text-[24px] font-bold'>Tampilan Rumah</div>
           <div className="grid grid-cols-1 gap-y-4 xl:grid-cols-preview-home gap-x-9">
-            <div className="grid grid-cols-3 mt-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-4 gap-4">
               {dataViewHome.map((data, key) =>
                 <CardViewHome
                   title={data.title}
