@@ -6,7 +6,7 @@ import { twJoin } from 'tailwind-merge'
 const Navbar = () => {
 
   const [onTop, setOnTop] = useState(false)
-  const [toggle,setToggle] = useState(false)
+  const [toggle,setToggle] = useState(true)
 
   const handleScroll = () => {
     if (onTop !== (window.pageYOffset === 0)) {
