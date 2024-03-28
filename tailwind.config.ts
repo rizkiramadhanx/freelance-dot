@@ -14,11 +14,9 @@ const config: Config = {
       colors: {
         "red-brand": "var(--red-brand)",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+      gridTemplateColumns: {
+        "preview-home": "4fr 2fr"
+      }
     },
   },
   plugins: [],

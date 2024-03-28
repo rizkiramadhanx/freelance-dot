@@ -8,7 +8,7 @@ const Breadcrumbs = () => {
     <div className="flex gap-2">
       {dataBreadcrumbs.map((data, key) => (
         <div key={key} className="flex gap-2">
-          <div>{data}</div>
+          <div className={tw(key + 1 !== dataBreadcrumbs.length ? 'text-red-brand' : 'text-[#999999]', 'text-[14px] font-semibold')}>{data}</div>
           <div className={tw(key + 1 === dataBreadcrumbs.length && "hidden")}>
             <ChevronRightIcon />
           </div>

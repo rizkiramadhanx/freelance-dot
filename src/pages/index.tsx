@@ -1,9 +1,13 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import { sourceSansPro } from "@/libs/font";
-import { twMerge as tw } from "tailwind-merge";
-import { DropdownIcon } from "../../public/svg";
+import CardOtherDesain from "@/components/page/main/CardOtherDesain";
+import Carousel from "@/components/page/main/Carousel";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { sourceSansPro } from "@/libs/font";
+import Image from "next/image";
+import { DropdownIcon } from "../../public/svg";
+import CardViewHome from "@/components/page/main/CardViewHome";
+import Footer from "@/components/layout/Footer";
+
+
 
 export default function Home() {
   return (
@@ -44,180 +48,123 @@ export default function Home() {
           <Breadcrumbs />
         </div>
       </div>
+      <div>
+        <Carousel />
+      </div>
+      <div className="flex justify-center py-[24px]">
+        <div className="container">
+          <div className='text-[#1A1A1A] text-[24px] font-bold'>Tampilan Rumah</div>
+          <div className="grid grid-cols-1 gap-y-4 xl:grid-cols-preview-home gap-x-9">
+            <div className="grid grid-cols-3 mt-4 gap-4">
+              {[1, 1, 1].map((data, key) =>
+                <CardViewHome key={key} />
+              )}
+            </div>
+            <div className="p-4 border-[#E6E6E6] border-[1px] rounded-2xl">
+              <div className="font-semibold text-[24px]">Omah Apik 3</div>
+              <div className="flex gap-1 mt-2 items-center">
+                <Image
+                  className="w-[28px] h-[28px] rounded-full"
+                  src="/svg/logo-omah.svg"
+                  height={28}
+                  width={28}
+                  alt="logo studio SAe"
+                />
+                <div className="text-[14px]">Studio SAe</div>
+              </div>
+              <div className="mt-4 text-[14px]">
+                <div className="flex gap-6">
+                  <div className="text-[#4D4D4D]">Jenis Rumah</div>
+                  <div>Scandinavian</div>
+                </div>
+                <div className="flex gap-6 mt-2 items-center">
+                  <div className="text-[#4D4D4D]">Tipe Desain</div>
+                  <div className="text-red-brand flex gap-1 items-center">
+                    <Image
+                      className="w-[15px] h-[15px]"
+                      src="/svg/check.svg"
+                      height={15}
+                      width={15}
+                      alt="logo studio SAe"
+                    />
+                    <div>Dapat Dimodifikasi</div>
+                  </div>
+                </div>
+              </div>
+              <div className="grid mt-4 grid-cols-4 gap-5 py-4 border-t-[1px] border-b-[1px] border-[#E6E6E6]">
+                <div className="flex flex-col items-center justify-center">
+                  <Image
+                    className="w-auto h-[8px]"
+                    src="/svg/dimension.svg"
+                    height={18}
+                    width={18}
+                    alt="dimension"
+                  />
+                  <div className="text-[12px] text-center text-[#808080] mt-2">Dimensi Tanah</div>
+                  <div className="text-[14px]"> 15 x 8m</div>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                  <Image
+                    className="w-auto h-[8px]"
+                    src="/svg/dimension.svg"
+                    height={18}
+                    width={18}
+                    alt="dimension"
+                  />
+                  <div className="text-[12px] text-center text-[#808080] mt-2">Luas Bangunan</div>
+                  <div className="text-[14px]">112m²</div>
+                </div><div className="flex flex-col items-center justify-center">
+                  <Image
+                    className="w-auto h-[8px]"
+                    src="/svg/dimension.svg"
+                    height={18}
+                    width={18}
+                    alt="dimension"
+                  />
+                  <div className="text-[12px] text-center text-[#808080] mt-2">Lantai</div>
+                  <div className="text-[14px]"> 2</div>
+                </div><div className="flex flex-col items-center justify-center">
+                  <Image
+                    className="w-auto h-[8px]"
+                    src="/svg/dimension.svg"
+                    height={18}
+                    width={18}
+                    alt="dimension"
+                  />
+                  <div className="text-[12px] text-center text-[#808080] mt-2">Kamar Tidur</div>
+                  <div className="text-[14px]"> 4</div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-1 mt-4">
+                <div className="text-[14px]">Harga Desain</div>
+                <div className="text-[24px] font-semibold">
+                  Rp. 32.500.000
+                </div>
+                <div className="text-[#808080] text-[14px]">
+                  Harga konstruksi mulai dari Rp 560.000.000
+                </div>
+              </div>
+              <div className="mt-4 cursor-pointer hover:bg-red-brand hover:text-white text-red-brand border-red-brand border-[1px] py-2 px-4 rounded-md font-semibold flex justify-center">
+                Lihat Detail
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="flex justify-center py-10">
         <div className="container">
           <div className="text-[24px] font-semibold">
             Desain Lainnya oleh Studio SAe
           </div>
           <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid gap-4 mt-6">
-            {[1, 1, 1, 1, 1, 1, 1].map((_, key) => (
-              <div key={key}>
-                <div className="p-4 border-[#E6E6E6] border-[1px]  rounded-[8px]">
-                  <Image
-                    className="w-full rounded-[4px]"
-                    src="/img/image-desain.png"
-                    height={50}
-                    width={50}
-                    alt="image desain"
-                  />
-                  <div className="mt-6">
-                    <div className="flex gap-2 items-center">
-                      <div className="text-[#1A202C] leading-6 text-[20px] font-bold">
-                        Omah Apik
-                      </div>
-                      <div className="text-[14px] leading-[20px] py-1 px-3 rounded-2xl bg-[#F1F1F1]">
-                        Scandinavian
-                      </div>
-                    </div>
-                    <div className="mt-2 flex items-center gap-2">
-                      <Image
-                        className="w-[28px] h-[28px] rounded-full"
-                        src="/img/image-desain.png"
-                        height={28}
-                        width={28}
-                        alt="image desain"
-                      />
-                      <div>Studio SAe</div>
-                    </div>
-                    <div className="pt-4">
-                      <div className="flex flex-col gap-1">
-                        <div className="text-[14px]">Harga Desain</div>
-                        <div className="text-[24px] font-semibold">
-                          Rp. 32.500.000
-                        </div>
-                        <div className="text-[#808080] text-[14px]">
-                          Harga konstruksi mulai dari Rp 560.000.000
-                        </div>
-                      </div>
-                      <div className="mt-4 cursor-pointer hover:bg-red-brand hover:text-white text-red-brand border-red-brand border-[1px] py-2 px-4 rounded-md font-semibold flex justify-center">
-                        Lihat Detail
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {Array(4).fill('data').map((_, key) => (
+              <CardOtherDesain key={key} />
             ))}
             <div></div>
           </div>
         </div>
       </div>
-      <div className="flex justify-center py-10 bg-[#012846] text-white">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-[30px] gap-x-[130px]">
-            <div>
-              <Image
-                src="/img/Logo.png"
-                alt="Logo"
-                height={42}
-                width={100}
-                className="h-[42px] w-auto"
-              />
-              <div className="mt-6">
-                SobatBangun adalah platform digital dari SIG yang bergerak
-                dengan misi mengembangkan proses pembangunan dan renovasi rumah
-                secara lebih baik serta berkelanjutan.
-              </div>
-              <div className="flex mt-4 gap-2">
-                <Image
-                  className="w-[24px] h-[24px] rounded-[4px]"
-                  src="/img/image-desain.png"
-                  height={50}
-                  width={50}
-                  alt="message"
-                />
-                <div className="underline">sobat@sobatbangum.com</div>
-              </div>
-              <div className="mt-4">
-                <div>Sosial Media :</div>
-                <div className="flex gap-[26px] mt-4">
-                  <Image
-                    className="w-[50px] h-[50px] rounded-full"
-                    src="/img/image-desain.png"
-                    height={50}
-                    width={50}
-                    alt="message"
-                  />{" "}
-                  <Image
-                    className="w-[50px] h-[50px] rounded-full"
-                    src="/img/image-desain.png"
-                    height={50}
-                    width={50}
-                    alt="message"
-                  />{" "}
-                  <Image
-                    className="w-[50px] h-[50px] rounded-full"
-                    src="/img/image-desain.png"
-                    height={50}
-                    width={50}
-                    alt="message"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-2">
-              <div>
-                <div className="font-bold text-[20px]">Produk & Layanan</div>
-                <div className="mt-6 flex flex-col gap-2">
-                  {[1, 1, 1, 1].map((e, key) => (
-                    <div key={key}>Renovasi</div>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <div className="font-bold text-[20px]">Tentang Kami</div>
-                <div className="mt-6 flex flex-col gap-2">
-                  {[1, 1, 1, 1].map((e, key) => (
-                    <div key={key}>Renovasi</div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-y-[30px] mt-[30px] xl:grid-cols-4">
-            {[1, 1, 1, 1].map((_, key) => (
-              <div key={key}>
-                <div>Kredit Bangun Rumah</div>
-                <div className="mt-4 flex gap-2">
-                  <Image
-                    className="w-[30px] md:h-[50px] md:w-[50px] h-[30px] rounded-full"
-                    src="/img/image-desain.png"
-                    height={50}
-                    width={50}
-                    alt="message"
-                  />
-                  <Image
-                    className="w-[30px] md:h-[50px] md:w-[50px] h-[30px] rounded-full"
-                    src="/img/image-desain.png"
-                    height={50}
-                    width={50}
-                    alt="message"
-                  />{" "}
-                  <Image
-                    className="w-[30px] md:h-[50px] md:w-[50px] h-[30px] rounded-full"
-                    src="/img/image-desain.png"
-                    height={50}
-                    width={50}
-                    alt="message"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-[50px] flex justify-between items-center">
-            <div className="flex gap-4">
-              <div>Powered by :</div>
-              <Image
-                className="w-[71px] h-[71px] rounded-full"
-                src="/img/image-desain.png"
-                height={71}
-                width={71}
-                alt="message"
-              />
-            </div>
-            <div>Copyright © 2023 SobatBangun. All rights reserved.</div>
-          </div>
-        </div>
-      </div>
+      <Footer />
     </main>
   );
 }
