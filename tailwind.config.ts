@@ -11,6 +11,9 @@ const config: Config = {
       fontFamily: {
         sourcesans: ["var(--font-sans-local-pro)"],
       },
+      colors: {
+        "red-brand": "var(--red-brand)",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
